@@ -49,8 +49,12 @@ def get_holidays(holidays):
 
 def save_holidays(holidays):
     with open('holidays.txt', 'w') as file:
-        file.write(f'\n{holidays}')
-        speak('Список праздников записан в файл')
+        file.write(f'Праздники\n')
+    for holiday in holidays:
+        name = holiday['localName']
+        with open('holidays.txt', 'a') as file:
+            file.write(f'{name}\n')
+    speak('Список праздников записан в файл')
 
 
 def save_date(holidays):
